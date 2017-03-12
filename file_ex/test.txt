@@ -1,0 +1,5 @@
+Hello there
+This is an example how to read from file line by line
+Line A
+Line B
+The End :)
