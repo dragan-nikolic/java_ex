@@ -1,3 +1,8 @@
+## How to create Maven project using VSCode
+Open Command Pallete then run:
+
+`Maven: Generate from Maven Archetype`
+
 ## How to build JAR file
 
 `mvn clean package`
