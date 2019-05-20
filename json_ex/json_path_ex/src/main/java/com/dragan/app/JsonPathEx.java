@@ -1,3 +1,11 @@
+/*
+does not work
+
+generates error:
+Exception in thread "main" java.lang.NoClassDefFoundError: com/jayway/jsonpath/Predicate
+        at com.dragan.app.JsonPathEx.main(JsonPathEx.java:19)
+*/
+
 package com.dragan.app;
 
 import java.nio.charset.StandardCharsets;
@@ -9,7 +17,7 @@ import com.jayway.jsonpath.JsonPath;
 
 public class JsonPathEx {
     public static void main(String[] args) throws IOException {
-        Path postsPath = Paths.get("/Users/dragan/dev/java_ex/json_ex", "posts.json");
+        Path postsPath = Paths.get("..", "posts.json");
 
         byte[] postsBytes = Files.readAllBytes(postsPath);
         String json = new String(postsBytes, StandardCharsets.UTF_8);
