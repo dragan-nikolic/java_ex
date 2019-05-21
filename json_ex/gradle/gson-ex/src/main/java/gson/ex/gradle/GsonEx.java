@@ -52,7 +52,7 @@ public class GsonEx {
     }
 
     public void example2() throws Exception {
-        Path postsPath = Paths.get(".", "posts.json");
+        Path postsPath = Paths.get("../../json_data", "posts.json");
 
         byte[] postsBytes = Files.readAllBytes(postsPath);
         String json = new String(postsBytes, StandardCharsets.UTF_8);
