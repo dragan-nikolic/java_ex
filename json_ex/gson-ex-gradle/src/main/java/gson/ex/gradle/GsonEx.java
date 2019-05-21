@@ -4,11 +4,26 @@
 package gson.ex.gradle;
 
 import java.util.List;
+import java.io.IOException;
+
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 
 public class GsonEx {
 
     public static void main(String... args) throws Exception {
+        GsonEx gsonEx = new GsonEx();
+
+        gsonEx.example1();
+        gsonEx.example2();
+    }
+
+    public void example1() {
         String json = 
             "{"
                 + "'title': 'Computing and Information systems',"
@@ -28,10 +43,29 @@ public class GsonEx {
             + "}";
 
         // Now do the magic.
-        Data data = new Gson.fromJson(json, Data.class);
+        Gson gson = new GsonBuilder().create();
+        Data data = gson.fromJson(json, Data.class);
 
         // Show it.
         System.out.println(data);
+
+    }
+
+    public void example2() throws Exception {
+        Path postsPath = Paths.get(".", "posts.json");
+
+        byte[] postsBytes = Files.readAllBytes(postsPath);
+        String json = new String(postsBytes, StandardCharsets.UTF_8);
+        System.out.println("***** json *****");
+        System.out.println(json);
+        System.out.println("***** json e*****");
+
+        // Now do the magic.
+        Gson gson = new GsonBuilder().create();
+        PostData posts = gson.fromJson(json, PostData.class);
+
+        // Show it.
+        System.out.println(posts);
     }
 
 }
@@ -53,6 +87,29 @@ class Data {
     public void setGroups(List<Data> groups) { this.groups = groups; }
 
     public String toString() {
-        return String.format("title:%s,id:%d,children:%s,groups:%s", title, id, children, groups);
+        return String.format("title:%s\nid:%d\nchildren:%s\ngroups:%s", title, id, children, groups);
     }
+}
+
+class PostData {
+    public PageInfo pageInfo;
+    public List<Post> posts;
+
+    public String toString() {
+        return String.format("pageInfo:%s\nlogo:%s", pageInfo.pageName, pageInfo.logo);
+    }
+}
+
+class PageInfo {
+    public String pageName;
+    public String logo;
+}
+
+class Post {
+    public String post_id;
+    public String actor_id;
+    public String author_name;
+    public String post_title;
+    public List<String> comments;
+    public String time_of_post;
 }
