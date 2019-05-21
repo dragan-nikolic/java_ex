@@ -3,6 +3,7 @@
  */
 package gson.ex.gradle;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 
@@ -19,8 +20,9 @@ public class GsonEx {
     public static void main(String... args) throws Exception {
         GsonEx gsonEx = new GsonEx();
 
-        gsonEx.example1();
-        gsonEx.example2();
+        //gsonEx.example1();
+        //gsonEx.example2();
+        gsonEx.example3();
     }
 
     public void example1() {
@@ -68,6 +70,27 @@ public class GsonEx {
         System.out.println(posts);
     }
 
+    public void example3() throws Exception {
+        Path postsPath = Paths.get("../../json_data", "users.json");
+
+        byte[] postsBytes = Files.readAllBytes(postsPath);
+        String json = new String(postsBytes, StandardCharsets.UTF_8);
+        System.out.println("***** json *****");
+        System.out.println(json);
+        System.out.println("***** json e*****");
+
+        // Now do the magic.
+        Gson gson = new GsonBuilder().create();
+        UserData users = gson.fromJson(json, UserData.class);
+
+        // Show it.
+        System.out.println(users);
+
+        // Get advisors
+        List<User> advisors = users.getAdvisors();
+        System.out.println(advisors);
+    }
+
 }
 
 class Data {
@@ -112,4 +135,53 @@ class Post {
     public String post_title;
     public List<String> comments;
     public String time_of_post;
+}
+
+class UserData {
+    public List<User> users;
+
+    public String toString() {
+        String res = "";
+        for (User user: users) {
+            res += (user.toString() + "\n");
+        }
+        return res;
+    }
+
+    public List<User> getType(String type) {
+        System.out.println("***** getType *****");
+        List<User> tusers = new ArrayList<>();
+
+        for (User user: users) {
+            System.out.println(String.format("user: %s (%s-%s)", user, user.type, type));
+            if (type.equals(user.type)) {
+                System.out.println("advisor");
+                tusers.add(user);
+            }
+        }
+
+        return tusers;
+    }
+
+    public List<User> getAdvisors() {
+        return getType("advisor");
+    }
+}
+
+class User {
+    public String type;
+    public String username;
+    public String password;
+    public Boolean canImpersonate;
+    public Boolean isHomeOffice;
+    public List<String> faNums;
+
+    public String toString() {
+        return String.format(
+            "user:%s, password:%s, imp:%b, ho:%b", 
+                username,
+                password,
+                canImpersonate,
+                isHomeOffice);
+    }
 }
