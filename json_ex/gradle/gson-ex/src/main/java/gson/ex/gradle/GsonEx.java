@@ -15,6 +15,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
+import lombok.Value;
+
 public class GsonEx {
 
     public static void main(String... args) throws Exception {
@@ -88,6 +90,7 @@ public class GsonEx {
 
         // Get advisors
         List<User> advisors = users.getAdvisors();
+        System.out.println("***** advisors *****");
         System.out.println(advisors);
     }
 
@@ -153,8 +156,8 @@ class UserData {
         List<User> tusers = new ArrayList<>();
 
         for (User user: users) {
-            System.out.println(String.format("user: %s (%s-%s)", user, user.type, type));
-            if (type.equals(user.type)) {
+            System.out.println(String.format("user: %s (%s)", user, type));
+            if (type.equals(user.getType())) {
                 System.out.println("advisor");
                 tusers.add(user);
             }
@@ -168,20 +171,21 @@ class UserData {
     }
 }
 
+@Value
 class User {
-    public String type;
-    public String username;
-    public String password;
-    public Boolean canImpersonate;
-    public Boolean isHomeOffice;
-    public List<String> faNums;
+    private String type;
+    private String username;
+    private String password;
+    private Boolean canImpersonate;
+    private Boolean isHomeOffice;
+    private List<String> faNums;
 
-    public String toString() {
-        return String.format(
-            "user:%s, password:%s, imp:%b, ho:%b", 
-                username,
-                password,
-                canImpersonate,
-                isHomeOffice);
-    }
+    // public String toString() {
+    //     return String.format(
+    //         "user:%s, password:%s, imp:%b, ho:%b", 
+    //             username,
+    //             password,
+    //             canImpersonate,
+    //             isHomeOffice);
+    // }
 }
