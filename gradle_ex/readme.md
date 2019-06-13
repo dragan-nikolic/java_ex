@@ -1,15 +1,15 @@
-# JSON Examples with Gradle
+# Gradle examples
 
 ## Create Gradle proejct
 
 Create it using following command:
 
-$ ./gradle init
+$ gradle init
 
 ## Build project
 
-$ ./gradlew build
+$ gradle build
 
 ## Run project
 
-$ ./gradlew run
+$ gradle run
