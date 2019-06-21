@@ -1,3 +1,13 @@
+/*
+Build:
+$ javac <file>.java
+This creates <file>.class
+
+Run:
+$ java <file>
+Note: $ java <file>.class will produce error 
+*/
+
 import java.util.*;
 public class HashMapDemo {
 

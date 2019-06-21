@@ -2,17 +2,25 @@
 stack examples
 
 tutorial: https://www.tutorialspoint.com/java/java_stack_class.htm
+
+Build:
+$ javac <file>.java
+This creates <file>.class
+
+Run:
+$ java <file>
+Note: $ java <file>.class will produce error 
 */
 import java.util.*;
 public class StackDemo {
 
-   static void showpush(Stack st, int a) {
+   static void showpush(Stack<Integer> st, int a) {
       st.push(new Integer(a));
       System.out.println("push(" + a + ")");
       System.out.println("stack: " + st);
    }
 
-   static void showpop(Stack st) {
+   static void showpop(Stack<Integer> st) {
       System.out.print("pop -> ");
       Integer a = (Integer) st.pop();
       System.out.println(a);
@@ -20,7 +28,7 @@ public class StackDemo {
    }
 
    public static void main(String args[]) {
-      Stack st = new Stack();
+      Stack<Integer> st = new Stack<Integer>();
       System.out.println("stack: " + st);
       showpush(st, 42);
       showpush(st, 66);
