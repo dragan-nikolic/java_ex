@@ -10,6 +10,11 @@ $ java <file>
 Note: $ java <file>.class will produce error 
 */
 import java.util.*;
+
+/**
+ * Q: Can overloading functions return dufferent types
+ * A: Yes, but only if they have different input types too
+ */
 public class OverloadingDemo {
 
    public static List<String> foo(String x) {
