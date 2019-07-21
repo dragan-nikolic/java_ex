@@ -7,5 +7,9 @@ target
 .project
 .settings
 
+#gradle
+.gradle
+build*
+
 # IDEs
 .vscode
