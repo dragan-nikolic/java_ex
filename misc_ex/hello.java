@@ -2,9 +2,12 @@
 This is Hello World java app :)
 
 Build:
-javac <file>.java
+$ javac <file>.java
+This creates <file>.class
+
 Run:
-java <file>
+$ java <file>
+Note: $ java <file>.class will produce error 
 */
 
 // name of the class must be same as name of the file

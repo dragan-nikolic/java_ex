@@ -3,6 +3,7 @@
  */
 package gson.ex.gradle;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 
@@ -14,13 +15,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 
+import lombok.Value;
+
 public class GsonEx {
 
     public static void main(String... args) throws Exception {
         GsonEx gsonEx = new GsonEx();
 
-        gsonEx.example1();
-        gsonEx.example2();
+        //gsonEx.example1();
+        //gsonEx.example2();
+        gsonEx.example3();
     }
 
     public void example1() {
@@ -52,7 +56,7 @@ public class GsonEx {
     }
 
     public void example2() throws Exception {
-        Path postsPath = Paths.get(".", "posts.json");
+        Path postsPath = Paths.get("../../json_data", "posts.json");
 
         byte[] postsBytes = Files.readAllBytes(postsPath);
         String json = new String(postsBytes, StandardCharsets.UTF_8);
@@ -66,6 +70,28 @@ public class GsonEx {
 
         // Show it.
         System.out.println(posts);
+    }
+
+    public void example3() throws Exception {
+        Path postsPath = Paths.get("../../json_data", "users.json");
+
+        byte[] postsBytes = Files.readAllBytes(postsPath);
+        String json = new String(postsBytes, StandardCharsets.UTF_8);
+        System.out.println("***** json *****");
+        System.out.println(json);
+        System.out.println("***** json e*****");
+
+        // Now do the magic.
+        Gson gson = new GsonBuilder().create();
+        UserData users = gson.fromJson(json, UserData.class);
+
+        // Show it.
+        System.out.println(users);
+
+        // Get advisors
+        List<User> advisors = users.getAdvisors();
+        System.out.println("***** advisors *****");
+        System.out.println(advisors);
     }
 
 }
@@ -112,4 +138,54 @@ class Post {
     public String post_title;
     public List<String> comments;
     public String time_of_post;
+}
+
+class UserData {
+    public List<User> users;
+
+    public String toString() {
+        String res = "";
+        for (User user: users) {
+            res += (user.toString() + "\n");
+        }
+        return res;
+    }
+
+    public List<User> getType(String type) {
+        System.out.println("***** getType *****");
+        List<User> tusers = new ArrayList<>();
+
+        for (User user: users) {
+            System.out.println(String.format("user: %s (%s)", user, type));
+            if (type.equals(user.getType())) {
+                System.out.println("advisor");
+                tusers.add(user);
+            }
+        }
+
+        return tusers;
+    }
+
+    public List<User> getAdvisors() {
+        return getType("advisor");
+    }
+}
+
+@Value
+class User {
+    private String type;
+    private String username;
+    private String password;
+    private Boolean canImpersonate;
+    private Boolean isHomeOffice;
+    private List<String> faNums;
+
+    // public String toString() {
+    //     return String.format(
+    //         "user:%s, password:%s, imp:%b, ho:%b", 
+    //             username,
+    //             password,
+    //             canImpersonate,
+    //             isHomeOffice);
+    // }
 }
