@@ -1,0 +1,39 @@
+Access modifiers
+================
+
+Visibility                              Public  Protected  Default  Private
+----------                              ------  ---------  -------  -------
+From the same class                     Yes     Yes        Yes      Yes
+From any class in the same package      Yes     Yes        Yes      No  
+From a subclass in the same package     Yes     Yes        Yes      No
+From a subclass from another package    Yes     Yes (I)    No       No
+From a nonsubclass from another package Yes     No         No       No
+
+
+Nonacceess modifiers
+====================
+final    - prevents a method from being overriden in a subclass
+abstract - subclass is forced to implement the method
+synchronized - method can be accessed by only one thread at a time
+native - method is implemented in platform-dependent code (often in C)
+strictfp - forces floating points to adhere to IEEE 754 standard
+
+Modifiers on variables vs. methods
+==================================
+
+Local variables    Variables    Methods
+---------------    ---------    -------
+final              final        final
+                   public       public
+                   protected    protected
+                   private      private
+                   static       static
+                   transient
+                   volatile
+                                abstract
+                                synchronized
+                                strictfp
+                                native
+
+
+
