@@ -1,4 +1,4 @@
-progress p56
+progress p106
 
 Define Classes (OCA Objectives 1.2, 1.3, 1.4, 6.4, and 7.5)
 1.2 Define the structure of a Java class.

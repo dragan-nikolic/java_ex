@@ -9,7 +9,7 @@ target
 
 #gradle
 .gradle
-build*
+build
 
 # IDEs
 .vscode
