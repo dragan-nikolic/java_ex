@@ -1,3 +1,5 @@
+package dir1;
+
 public class Person {
   private String name;
 

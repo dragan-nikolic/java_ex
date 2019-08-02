@@ -1,7 +1,7 @@
 /*
 Note: this example does not work! Need to fix it.
 */
-public class Student extends Person {
+public class Student extends dir1.Person {
   private String university;
 
   public Student(String name, String university) {
@@ -14,7 +14,7 @@ public class Student extends Person {
   }
 
   public static void main(String[] args) {
-    Person p = new Person("Dragan");
+    dir1.Person p = new dir1.Person("Dragan");
     Student s = new Student("Mila", "UBC");
 
     System.out.println(p);
