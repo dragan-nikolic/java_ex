@@ -30,8 +30,22 @@ public class TimeDemo {
         System.out.println(format.format(currentPlus3));
     }
 
+    public static void StringToDate() {
+        String sDate1="1998-05-25 19:36:00.0";
+        Date date1;
+
+        try {
+            date1=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(sDate1);  
+        } catch(Exception e) {
+            System.out.println("Exception!");
+            return;
+        }
+        System.out.println(sDate1+"\t"+date1);  
+    }
+
     public static void main(String args[]) {
-        TodayInFormat();
-        AddDaysToDate();
+        // TodayInFormat();
+        // AddDaysToDate();
+        StringToDate();
     }
 }
