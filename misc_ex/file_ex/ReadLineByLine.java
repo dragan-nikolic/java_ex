@@ -11,8 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class ReadLineByLine {
-
-	public static void main(String[] args) {
+	public static void readOldWay() {
 		try {
 			File file = new File("test.txt");
 			FileReader fileReader = new FileReader(file);
@@ -29,5 +28,10 @@ public class ReadLineByLine {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public static void main(String[] args) {
+		readOldWay();
 	}
 }
