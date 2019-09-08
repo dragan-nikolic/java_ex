@@ -11,10 +11,11 @@ Once the build finishes, the report is available in the `target/site` folder
 under the name `checkstyle.html`.
 
 ### Using Command Line
-`java -jar checkstyle-N.N-all.jar -c checkstyle.xml /path/to/src`
+Check single file:
+`java -jar checkstyle-8.24-all.jar -c my_google_checks.xml src/main/javacom/dragan/calcengine/Adder.java`
 
-Linux:
-`java -jar checkstyle-5.5-all.jar -c checkstyle.xml /path/to/src/**/*.java`
+Check multiple files (Linux or GitBash on Windows):
+`java -jar checkstyle-8.24-all.jar -c my_google_checks.xml src/main/javacom/dragan/**/*.java`
 
 ## Autofix
 
