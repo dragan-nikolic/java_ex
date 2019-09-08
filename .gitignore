@@ -15,3 +15,5 @@ build
 .vscode
 .idea
 *.iml
+
+tutorials/checkstyle/CalcEngine/checks-*.txt
