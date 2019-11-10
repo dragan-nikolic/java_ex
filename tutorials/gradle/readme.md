@@ -1,15 +1,21 @@
-# Gradle examples
+# Gradle
 
-## Create Gradle proejct
+## Install Gradle
+
+https://docs.gradle.org/current/userguide/installation.html#installing_gradle
+
+## Getting Started
+
+### Create Gradle proejct
 
 Create it using following command:
 
-$ gradle init
+`$ gradle init`
 
-## Build project
+### Build project
 
-$ gradle build
+`$ gradle build`
 
-## Run project
+### Run project
 
-$ gradle run
+`$ gradle run`
