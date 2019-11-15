@@ -180,6 +180,10 @@ class User {
     private Boolean isHomeOffice;
     private List<String> faNums;
 
+    public String getType() {
+        return type;
+    }
+
     // public String toString() {
     //     return String.format(
     //         "user:%s, password:%s, imp:%b, ho:%b", 
