@@ -1,7 +1,18 @@
 /*
-Note: this example does not work! Need to fix it.
+How to run:
+- cd to base dir (files_in_different_dirs)
+- $ javac dir1/Person.java
+- $ javac dir2/Student.java
+- $ java dir2.Student
+
+Notes:
+- package must be defined for both files
 */
-public class Student extends dir1.Person {
+package dir2;
+import dir1.Person;
+
+
+public class Student extends Person {
   private String university;
 
   public Student(String name, String university) {

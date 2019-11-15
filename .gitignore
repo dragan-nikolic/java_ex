@@ -15,3 +15,6 @@ build
 .vscode
 .idea
 *.iml
+
+tutorials/checkstyle/CalcEngine/checks-*.txt
+misc_ex/CreateAndPopulateZip/myData.zip

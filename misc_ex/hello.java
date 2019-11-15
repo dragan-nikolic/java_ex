@@ -6,8 +6,9 @@ $ javac <file>.java
 This creates <file>.class
 
 Run:
-$ java <file>
-Note: $ java <file>.class will produce error 
+$ java <file> 
+
+Note: do not run with class extension 'java <file>.class'
 */
 
 // name of the class must be same as name of the file
