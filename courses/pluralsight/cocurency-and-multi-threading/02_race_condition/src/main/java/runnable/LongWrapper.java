@@ -2,7 +2,6 @@ package runnable;
 
 public class LongWrapper {
 
-	private Object key = new Object();
 	private long l;
 
 	public LongWrapper(long l) {
@@ -10,14 +9,10 @@ public class LongWrapper {
 	}
 
 	public long getValue() {
-		synchronized (key) {
-			return l;
-		}
+		return l;
 	}
 
 	public void incrementValue() {
-		synchronized (key) {
-			l = l + 1;
-		}
+		l = l + 1;
 	}
 }

@@ -10,10 +10,17 @@ public class RaceCondition {
             }
         };
 
-        Thread t = new Thread(r);
-        t.start();
+        Thread[] threads = new Thread[1_000];
 
-        t.join();
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new Thread(r);
+            threads[i].start();
+        }
+
+        for (int i = 0; i < threads.length; i++) {
+            threads[i].join();
+        }
+
         System.out.println("Value = " + longWrapper.getValue());
     }
 }
