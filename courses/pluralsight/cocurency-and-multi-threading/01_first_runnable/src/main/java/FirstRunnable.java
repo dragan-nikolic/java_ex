@@ -5,6 +5,8 @@ public class FirstRunnable {
         };
 
         Thread t = new Thread(runnable);
+        t.setName("Thread-Dragan");
         t.start();
+        //t.run(); NO NO NO
     }
 }
