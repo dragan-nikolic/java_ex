@@ -1,5 +1,3 @@
-package com.dragan.zip;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+public class CreateAndPopulateZip {
 
     public static void main(String[] args) {
         // String[] data = {

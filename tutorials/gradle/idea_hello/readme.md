@@ -15,9 +15,9 @@
 Just copy .gitignore from this project
 
 ### Enable running from command line
-- in plugins section add 'id 'application'
-- at the bottom add: mainClassName = 'path.to.app.AppName'
-  - in this Hello project that would be: mainClassName = 'IdeaGradleHello'
+- in plugins section add: `id 'application'`
+- at the bottom add: `mainClassName = 'path.to.app.AppName'`
+  - in this Hello project that would be: `mainClassName = 'IdeaGradleHello'`
 
 ### Build project
 
