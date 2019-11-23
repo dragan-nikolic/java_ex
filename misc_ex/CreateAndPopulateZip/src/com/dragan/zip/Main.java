@@ -13,16 +13,17 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        String[] data = {
-            "Line 1",
-            "Line 1 2",
-            "Line 1 2 3",
-            "Line 1 2 3 4",
-            "Line 1 2 3 4 5"
-        };
+        // String[] data = {
+        //     "Line 1",
+        //     "Line 1 2",
+        //     "Line 1 2 3",
+        //     "Line 1 2 3 4",
+        //     "Line 1 2 3 4 5"
+        // };
 
-        try(FileSystem zipFs = openZip(Paths.get("myData.zip"))) {
-
+        try {
+            FileSystem zipFs = openZip(Paths.get("myData.zip"));
+            System.out.println("Zip file: " + zipFs.toString());
         } catch(Exception e) {
             System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
         }
