@@ -26,3 +26,7 @@ Just copy .gitignore from this project
 ### Run project
 
 `$ gradle run`
+
+## References
+
+* [Maven repository](https://mvnrepository.com/)

@@ -1,11 +1,16 @@
 package support;
 
-import lombok.Value;
+import lombok.Data;
 
-@Value
+@Data
 public class Activity {
-    private int id;
-    private String subject;
+    protected int id;
+    protected String subject;
+
+    public Activity() {
+        this.id = -1;
+        this.subject = null;
+    }
 
     public Activity(int id, String subject) {
         this.id = id;
@@ -15,5 +20,12 @@ public class Activity {
     public Activity(Activity other) {
         this.id = other.id;
         this.subject = other.subject;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        Activity otherA = (Activity)other;
+        return id == otherA.id
+                && subject.equals(otherA.subject);
     }
 }
