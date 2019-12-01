@@ -1,5 +1,19 @@
-# Ignore Gradle project-specific cache directory
-.gradle
+# Add any directories, files, or patterns you don't want to be tracked by version control
+*.class
 
-# Ignore Gradle build output directory
+target
+
+.classpath
+.project
+.settings
+
+#gradle
+.gradle
 build
+settings.gradle
+gradle*
+
+# IDEs
+.vscode
+.idea
+*.iml
