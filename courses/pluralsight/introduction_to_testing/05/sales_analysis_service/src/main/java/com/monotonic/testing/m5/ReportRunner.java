@@ -9,7 +9,9 @@ public class ReportRunner {
             System.exit(-1);
         }
 
-        SalesReport report = new SalesReport(System.out, args[0]);
+        CsvSalesRepository repo = new CsvSalesRepository(args[0]);
+        SalesAnalysisService analyser = new SalesAnalysisService(repo);
+        SalesReport report = new SalesReport(System.out, analyser);
         report.report();
     }
 

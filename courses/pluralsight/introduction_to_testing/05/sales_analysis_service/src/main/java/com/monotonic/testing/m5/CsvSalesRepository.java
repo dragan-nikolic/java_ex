@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvSalesRepository {
+public class CsvSalesRepository implements SalesRepository {
 
     private final String fileLocation;
     private PrintStream error;
