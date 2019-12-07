@@ -13,11 +13,13 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-
     // https://mvnrepository.com/artifact/au.com.bytecode/opencsv
     compile group: 'au.com.bytecode', name: 'opencsv', version: '2.4'
 
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
 }
 
 mainClassName = 'com.monotonic.testing.m5.ReportRunner'
