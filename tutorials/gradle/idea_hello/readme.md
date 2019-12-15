@@ -27,6 +27,9 @@ Just copy .gitignore from this project
 
 `$ gradle run`
 
+If you use Scanner use following command to remove ugly prompt:
+`$ gradle --console plain run`
+
 ## References
 
 * [Maven repository](https://mvnrepository.com/)
