@@ -42,8 +42,10 @@ public class LuckyNumber {
         String ticketNumber = "";
 
         do {
-            System.out.print("Please enter: ");
+            System.out.print("Please enter ticket number: ");
             ticketNumber = in.nextLine();
+
+            if (ticketNumber.isEmpty()) break;
 
             try {
                 boolean result = isMyTicketLucky(ticketNumber);
@@ -51,7 +53,7 @@ public class LuckyNumber {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        } while(!ticketNumber.isEmpty());
+        } while(true);
 
         System.out.println("Goodbye!");
         in.close();
