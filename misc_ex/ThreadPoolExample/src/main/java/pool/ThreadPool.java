@@ -5,7 +5,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class ThreadPool {
     private final int nThreads;
     private final PoolWorker[] threads;
-    private final LinkedBlockingQueue<Runnable> queue;
+    private final LinkedBlockingQueue<TaskInfo> queue;
 
     public ThreadPool(int nThreads) {
         this.nThreads = nThreads;
@@ -18,16 +18,17 @@ public class ThreadPool {
         }
     }
 
-    public void execute(Runnable task) {
+    public void submit(Runnable task, long delayMillis) {
         synchronized (queue) {
-            queue.add(task);
+            TaskInfo taskInfo = new TaskInfo(task, delayMillis);
+            queue.add(taskInfo);
             queue.notify();
         }
     }
 
     private class PoolWorker extends Thread {
         public void run() {
-            Runnable task;
+            TaskInfo taskInfo;
 
             while (true) {
 
@@ -40,13 +41,20 @@ public class ThreadPool {
                         }
                     }
 
-                    task = (Runnable)queue.poll();
+                    taskInfo = queue.poll();
+                }
+
+                try {
+                    Thread.sleep(taskInfo.getDelayMillis());
+                } catch (InterruptedException e) {
+                    System.out.println("Thread sleep interrupted: " + e.getMessage());
+                    e.printStackTrace();
                 }
 
                 // If we don't catch RuntimeException,
                 // the pool could leak threads
                 try {
-                    task.run();
+                    taskInfo.getRunnable().run();
                 } catch (RuntimeException e) {
                     System.out.println("Thread pool is interrupted due to an issue: " + e.getMessage());
                 }
