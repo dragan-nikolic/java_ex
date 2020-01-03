@@ -1,15 +1,24 @@
 package pool;
 
+import java.util.List;
+
 public class Task implements Runnable {
 
-    private int num;
+    private Object key = new Object();
+    private int id;
+    private List<Integer> buffer;
 
-    public Task(int n) {
-        System.out.println("Created task " + n);
-        num = n;
+    public Task(int id, List<Integer> buffer) {
+        System.out.println("Created task " + id);
+        
+        this.id = id;
+        this.buffer = buffer;
     }
 
     public void run() {
-        System.out.println("Task " + num + " is running.");
+        synchronized(key) {
+            System.out.println("Task " + id + " is running.");
+            buffer.add(id);
+        }
     }
 }

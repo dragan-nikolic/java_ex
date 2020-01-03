@@ -1,15 +1,16 @@
 package pool;
 
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class ThreadPool {
     private final int nThreads;
     private final PoolWorker[] threads;
-    private final LinkedBlockingQueue<TaskInfo> queue;
+    private final Queue<TaskInfo> queue;
 
     public ThreadPool(int nThreads) {
         this.nThreads = nThreads;
-        queue = new LinkedBlockingQueue<>();
+        queue = new LinkedList<>();
         threads = new PoolWorker[nThreads];
 
         for (int i = 0; i < nThreads; i++) {
