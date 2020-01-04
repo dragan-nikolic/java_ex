@@ -18,3 +18,5 @@ build
 
 tutorials/checkstyle/CalcEngine/checks-*.txt
 misc_ex/CreateAndPopulateZip/myData.zip
+
+.DS_Store
