@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Task implements Runnable {
 
-    private Object key = new Object();
+    //private Object key = new Object();
     private int id;
     private List<Integer> buffer;
 
@@ -16,7 +16,7 @@ public class Task implements Runnable {
     }
 
     public void run() {
-        synchronized(key) {
+        synchronized(buffer) {
             System.out.println("Task " + id + " is running.");
             buffer.add(id);
         }
