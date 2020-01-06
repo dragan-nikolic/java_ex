@@ -2,15 +2,18 @@ package pool;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class ThreadPool {
     private final int nThreads;
     private final PoolWorker[] threads;
     private final Queue<TaskInfo> queue;
+    //private final LinkedBlockingQueue<TaskInfo> queue;
 
     public ThreadPool(int nThreads) {
         this.nThreads = nThreads;
         queue = new LinkedList<>();
+        //queue = new LinkedBlockingQueue<>();
         threads = new PoolWorker[nThreads];
 
         for (int i = 0; i < nThreads; i++) {
@@ -25,6 +28,10 @@ public class ThreadPool {
             queue.add(taskInfo);
             queue.notify();
         }
+    }
+
+    public boolean isQueueEmpty() {
+        return queue.isEmpty();
     }
 
     private class PoolWorker extends Thread {
@@ -45,11 +52,13 @@ public class ThreadPool {
                     taskInfo = queue.poll();
                 }
 
-                try {
-                    Thread.sleep(taskInfo.getDelayMillis());
-                } catch (InterruptedException e) {
-                    System.out.println("Thread sleep interrupted: " + e.getMessage());
-                    e.printStackTrace();
+                if (taskInfo.getDelayMillis() > 0) {
+                    try {
+                        Thread.sleep(taskInfo.getDelayMillis());
+                    } catch (InterruptedException e) {
+                        System.out.println("Thread sleep interrupted: " + e.getMessage());
+                        e.printStackTrace();
+                    }
                 }
 
                 // If we don't catch RuntimeException,
