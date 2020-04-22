@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReadLineByLine {
@@ -44,6 +45,19 @@ public class ReadLineByLine {
 			e.printStackTrace();
 		}
 	}
+
+	public static void writeNewWay() {
+		List<String> lines = new ArrayList<>();
+		lines.add("line 1");
+		lines.add("Line 2");
+
+		try {
+			Files.;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	public static void main(String[] args) {
 		//readOldWay();
