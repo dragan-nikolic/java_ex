@@ -52,7 +52,7 @@ public class ReadLineByLine {
 		lines.add("Line 2");
 
 		try {
-			Files.;
+			Files.write(Paths.get("tmp.txt"), lines);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -61,6 +61,7 @@ public class ReadLineByLine {
 
 	public static void main(String[] args) {
 		//readOldWay();
-		readNewWay();
+		//readNewWay();
+		writeNewWay();
 	}
 }
