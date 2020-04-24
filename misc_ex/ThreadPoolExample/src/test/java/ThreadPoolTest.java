@@ -92,7 +92,7 @@ public class ThreadPoolTest {
             pool.submit(task, 0);
         }
 
-        while (!pool.isQueueEmpty());
+        while (pool.isTaskAvailable());
         Thread.sleep(10*poolSize + 100);
 
         // then

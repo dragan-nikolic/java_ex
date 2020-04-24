@@ -5,10 +5,10 @@ import java.util.Queue;
 
 public class ThreadPool {
     private final PoolWorker[] threads;
-    private final Queue<TaskInfo> queue;
+    private final Queue<TaskInfo> tasks;
 
     public ThreadPool(int nThreads) {
-        queue = new LinkedList<>();
+        tasks = new LinkedList<>();
         threads = new PoolWorker[nThreads];
 
         for (int i = 0; i < nThreads; i++) {
@@ -18,16 +18,16 @@ public class ThreadPool {
     }
 
     public void submit(Runnable task, long delayMillis) {
-        synchronized (queue) {
+        synchronized (tasks) {
             TaskInfo taskInfo = new TaskInfo(task, delayMillis);
-            queue.add(taskInfo);
-            queue.notify();
+            tasks.add(taskInfo);
+            tasks.notify();
         }
     }
 
-    public boolean isQueueEmpty() {
-        synchronized(queue) {
-            return queue.isEmpty();
+    public boolean isTaskAvailable() {
+        synchronized(tasks) {
+            return !tasks.isEmpty();
         }
     }
 
@@ -37,16 +37,16 @@ public class ThreadPool {
 
             while (true) {
 
-                synchronized (queue) {
-                    while (queue.isEmpty()) {
+                synchronized (tasks) {
+                    while (tasks.isEmpty()) {
                         try {
-                            queue.wait();
+                            tasks.wait();
                         } catch (InterruptedException e) {
                             System.out.println("An error occurred while queue is waiting: " + e.getMessage());
                         }
                     }
 
-                    taskInfo = queue.poll();
+                    taskInfo = tasks.poll();
                 }
 
                 if (taskInfo.getDelayMillis() > 0) {
