@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ThreadPool {
+    private final Object key = new Object();
     private final PoolWorker[] threads;
     private final Queue<TaskInfo> tasks;
 
@@ -18,15 +19,15 @@ public class ThreadPool {
     }
 
     public void submit(Runnable task, long delayMillis) {
-        synchronized (tasks) {
+        synchronized (key) {
             TaskInfo taskInfo = new TaskInfo(task, delayMillis);
             tasks.add(taskInfo);
-            tasks.notify();
+            key.notify();
         }
     }
 
     public boolean isTaskAvailable() {
-        synchronized(tasks) {
+        synchronized(key) {
             return !tasks.isEmpty();
         }
     }
@@ -37,10 +38,10 @@ public class ThreadPool {
 
             while (true) {
 
-                synchronized (tasks) {
-                    while (tasks.isEmpty()) {
+                synchronized (key) {
+                    if (tasks.isEmpty()) {
                         try {
-                            tasks.wait();
+                            key.wait();
                         } catch (InterruptedException e) {
                             System.out.println("An error occurred while queue is waiting: " + e.getMessage());
                         }

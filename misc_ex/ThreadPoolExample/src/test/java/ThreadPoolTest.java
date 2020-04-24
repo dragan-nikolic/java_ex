@@ -76,15 +76,15 @@ public class ThreadPoolTest {
         NoDelayTest(3, 100000);
     }
 
+    @Test
+    public void NoDelaysTest1000_100000() throws InterruptedException {
+        NoDelayTest(1000, 100000);
+    }
+
     private void NoDelayTest(int poolSize, int numberOfTasks) throws InterruptedException {
         // given
         ThreadPool pool = new ThreadPool(poolSize);
-
         List<Integer> buffer = new ArrayList<>();
-        List<Integer> expectedTaskOrder = new ArrayList<>();
-        for (int i = 0; i < numberOfTasks; i++) {
-            expectedTaskOrder.add(i+1);
-        }
 
         // when
         for (int i = 0; i < numberOfTasks; i++) {
@@ -93,9 +93,9 @@ public class ThreadPoolTest {
         }
 
         while (pool.isTaskAvailable());
-        Thread.sleep(10*poolSize + 100);
+        Thread.sleep(poolSize * 10);
 
         // then
-        Assert.assertEquals(expectedTaskOrder.size(), buffer.size());
+        Assert.assertEquals(numberOfTasks, buffer.size());
     }
 }
