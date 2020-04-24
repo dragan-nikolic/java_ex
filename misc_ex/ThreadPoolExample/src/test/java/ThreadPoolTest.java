@@ -71,10 +71,10 @@ public class ThreadPoolTest {
         NoDelayTest(3, 10000);
     }
 
-    // @Test
-    // public void NoDelaysTest3_100000() throws InterruptedException {
-    //     NoDelayTest(3, 100000);
-    // }
+    @Test
+    public void NoDelaysTest3_100000() throws InterruptedException {
+        NoDelayTest(3, 100000);
+    }
 
     private void NoDelayTest(int poolSize, int numberOfTasks) throws InterruptedException {
         // given

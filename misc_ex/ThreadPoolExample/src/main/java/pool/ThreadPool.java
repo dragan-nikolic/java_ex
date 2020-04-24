@@ -31,7 +31,9 @@ public class ThreadPool {
     }
 
     public boolean isQueueEmpty() {
-        return queue.isEmpty();
+        synchronized(queue) {
+            return queue.isEmpty();
+        }
     }
 
     private class PoolWorker extends Thread {
