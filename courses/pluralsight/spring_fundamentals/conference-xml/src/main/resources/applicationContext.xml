@@ -8,7 +8,7 @@
           class="org.dragan.repository.HibernateSpeakerRepositoryImpl" />
 
     <bean name="speakerService" class="org.dragan.service.SpeakerServiceImpl" >
-        <property  name="speakerRepository" ref="speakerRepository" />
+        <constructor-arg index="0" ref="speakerRepository" />
     </bean>
 
 </beans>
