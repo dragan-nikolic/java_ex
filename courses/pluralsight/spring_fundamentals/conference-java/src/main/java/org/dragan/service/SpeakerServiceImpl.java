@@ -1,11 +1,11 @@
 package org.dragan.service;
 
 import org.dragan.model.Speaker;
-import org.dragan.repository.HibernateSpeakerRepositoryImpl;
 import org.dragan.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service("speakerService")
@@ -30,5 +30,10 @@ public class SpeakerServiceImpl implements SpeakerService {
     public void setRepository(SpeakerRepository repository) {
         System.out.println("SpeakerServiceImpl setter");
         this.repository = repository;
+    }
+
+    @PostConstruct
+    private void initialize() {
+        System.out.println("Initialize - called after the constructors");
     }
 }
