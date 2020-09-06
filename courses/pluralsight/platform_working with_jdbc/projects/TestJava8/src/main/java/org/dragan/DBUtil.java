@@ -21,4 +21,9 @@ public class DBUtil {
                 return null;
         }
     }
+
+    public static void showErrorMessage(SQLException e) {
+        System.err.println("Error message: " + e.getMessage());
+        System.err.println("Error code: " + e.getErrorCode());
+    }
 }
