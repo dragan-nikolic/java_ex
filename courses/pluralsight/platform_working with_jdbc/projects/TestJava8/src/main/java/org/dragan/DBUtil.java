@@ -14,9 +14,9 @@ public class DBUtil {
                         "hr");
             case MYSQLDB:
                 return DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/world",
+                        "jdbc:mysql://localhost:3306/world?serverTimezone=UTC",
                         "root",
-                        "madmin");
+                        "madmin11");
             default:
                 return null;
         }
