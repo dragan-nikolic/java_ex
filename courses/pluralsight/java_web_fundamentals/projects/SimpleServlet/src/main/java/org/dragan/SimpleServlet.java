@@ -22,4 +22,15 @@ public class SimpleServlet extends HttpServlet {
             resp.getWriter().write("<h2>Please enter a name!</h2>");
         }
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+
+        if (name != null) {
+            resp.getWriter().printf("<h2>Hello %s</h2>", name);
+        } else {
+            resp.getWriter().write("<h2>Please enter a name!</h2>");
+        }
+    }
 }
