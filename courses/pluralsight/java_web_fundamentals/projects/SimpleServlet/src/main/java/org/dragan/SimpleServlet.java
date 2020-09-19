@@ -8,14 +8,11 @@ import java.io.IOException;
 
 public class SimpleServlet extends HttpServlet {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        resp.getWriter().write("<h2>Hello World</h2>");
+        resp.getWriter().write("<h2>Hello World by Dragan</h2>");
     }
 }
