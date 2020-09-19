@@ -1,11 +1,14 @@
 package org.dragan;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet(urlPatterns = {"/home", "*.do"}, name="SimpleServlet", initParams = {@WebInitParam(name = "ProductName", value="Welcome Application")})
 public class SimpleServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -27,10 +30,11 @@ public class SimpleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
 
-        if (name != null) {
+        if (name != null && name != "") {
+            resp.setContentType("text/html");
             resp.getWriter().printf("<h2>Hello %s</h2>", name);
         } else {
-            resp.getWriter().write("<h2>Please enter a name!</h2>");
+            resp.sendRedirect("index.jsp");
         }
     }
 }
