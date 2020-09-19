@@ -19,3 +19,13 @@ These commands are located under `Plugins/tomcat7` section.
 
 See SimpleServlet for an example. It is important to include `tomcat7-maven-plugin`
 in the pom.xml.
+
+### SimpleServlet example
+
+After deploying type in a broswer:
+
+`localhost:8080/SimpleServlet`
+
+or
+
+`localhost:8080/SimpleServlet/home?name=John`

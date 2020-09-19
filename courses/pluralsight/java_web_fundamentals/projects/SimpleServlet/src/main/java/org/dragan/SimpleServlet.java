@@ -13,6 +13,13 @@ public class SimpleServlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        resp.getWriter().write("<h2>Hello World by Dragan</h2>");
+
+        String name = req.getParameter("name");
+
+        if (name != null) {
+            resp.getWriter().printf("<h2>Hello %s</h2>", name);
+        } else {
+            resp.getWriter().write("<h2>Please enter a name!</h2>");
+        }
     }
 }
