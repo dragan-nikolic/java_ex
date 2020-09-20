@@ -4,10 +4,13 @@
            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
            version="3.0">
-
     <servlet>
         <servlet-name>SimpleServlet</servlet-name>
         <servlet-class>org.dragan.SimpleServlet</servlet-class>
+        <init-param>
+            <param-name>ProductName</param-name>
+            <param-value>Name from xml config file</param-value>
+        </init-param>
     </servlet>
     
     <servlet-mapping>
