@@ -13,5 +13,6 @@
     <servlet-mapping>
         <servlet-name>SimpleServlet</servlet-name>
         <url-pattern>/home</url-pattern>
+        <url-pattern>*.to</url-pattern>
     </servlet-mapping>
 </web-app>

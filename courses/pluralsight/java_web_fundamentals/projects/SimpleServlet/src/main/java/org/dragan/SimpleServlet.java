@@ -10,8 +10,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/home", "*.do"}, name="SimpleServlet", initParams = {@WebInitParam(name = "ProductName", value="Welcome Application")})
 public class SimpleServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
+    String appName = "My Application";
 
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,7 +19,7 @@ public class SimpleServlet extends HttpServlet {
         String name = req.getParameter("name");
 
         if (name != null) {
-            resp.getWriter().printf("<h2>Hello %s</h2>", name);
+            resp.getWriter().printf("<h2>Hello %s</h2><h3>Product: %s</h3>", name, appName);
         } else {
             resp.getWriter().write("<h2>Please enter a name!</h2>");
         }
@@ -36,5 +35,10 @@ public class SimpleServlet extends HttpServlet {
         } else {
             resp.sendRedirect("index.jsp");
         }
+    }
+
+    @Override
+    public void init() throws ServletException {
+        appName = getInitParameter("ProductName");
     }
 }
