@@ -2,6 +2,8 @@ package org.dragan.proxy;
 
 public class TwitterDemo {
     public static void main(String[] args) {
-        System.out.println("Hello");
+        TwitterService service = (TwitterService)SecurityProxy.newInstance(new TwitterServiceStub());
+
+        System.out.println(service.getTimeline("bh5k"));
     }
 }
