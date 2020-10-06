@@ -1,13 +1,22 @@
 package org.dragan.singleton;
 
 public class DbSingleton {
-    private static DbSingleton instance = null;
+    private static volatile DbSingleton instance = null;
 
-    private DbSingleton() {}
+    private DbSingleton() {
+        // prevent reflection
+        if (instance != null) {
+            throw new RuntimeException("Create DbSingleton using getInstance method!");
+        }
+    }
 
     public static DbSingleton getInstance() {
         if (instance == null) {
-            instance = new DbSingleton();
+            synchronized (DbSingleton.class) {
+                if (instance == null) {
+                    instance = new DbSingleton();
+                }
+            }
         }
 
         return instance;
