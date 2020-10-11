@@ -1,12 +1,11 @@
 # Gradle
 
-## Install Gradle
-
-https://docs.gradle.org/current/userguide/installation.html#installing_gradle
+## [Install Gradle](https://docs.gradle.org/current/userguide/installation.html#installing_gradle)
 
 ## Getting Started
 
 ### Configure .gitignore
+
 Just copy .gitignore from this project
 
 ### Create Gradle proejct
