@@ -55,7 +55,7 @@ Install [world sample database](https://dev.mysql.com/doc/world-setup/en/world-s
 
 ### Connecting to MySQL using JDBC
 
-- Download and install JDBC driver from https://dev.mysql.com/downloads/connector/j/
+- Download and install JDBC driver from [here](https://dev.mysql.com/downloads/connector/j/)
 - For Windows and MacOS select Platfrom indepemdent driver
 - Copy JAR file to the libs folder
 - Setup your IDE to use it
