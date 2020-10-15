@@ -3,6 +3,10 @@ package dragan.command;
 public class Light {
     private boolean isOn = false;
 
+    public boolean isOn() {
+        return isOn;
+    }
+
     public void toggle() {
         if (isOn) {
             off();
@@ -13,10 +17,10 @@ public class Light {
 
     public void on() {
         isOn = true;
-        System.out.println("Light switched on.");
+        System.out.println(this + " light switched on.");
     }
 
     public void off() {
         isOn = false;
-        System.out.println("Light switched off.");
+        System.out.println(this + " light switched off.");
     }}
