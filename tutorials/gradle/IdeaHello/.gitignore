@@ -9,10 +9,10 @@ target
 
 #gradle
 .gradle
+gradle*
 build
 bin
 settings.gradle
-gradle*
 
 # IDEs
 .vscode

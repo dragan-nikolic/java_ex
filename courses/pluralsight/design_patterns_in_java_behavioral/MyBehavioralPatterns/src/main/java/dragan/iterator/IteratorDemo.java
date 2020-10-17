@@ -1,6 +1,6 @@
 package dragan.iterator;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 
 public class IteratorDemo {
     public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class IteratorDemo {
         repo.addBike("Scott");
         repo.addBike("Fuji");
 
-        Iterator<String> bikeIterator = repo.iterator();
+//        Iterator<String> bikeIterator = repo.iterator();
 
 //        while (bikeIterator.hasNext()) {
 //            System.out.println(bikeIterator.next());

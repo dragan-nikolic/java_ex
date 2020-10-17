@@ -15,6 +15,10 @@
 
 Just copy .gitignore from this project
 
+### Fix warnings if needed
+
+In build.gradle modify 'testCompile' to 'testImplementation'.
+
 ### Enable running from command line
 
 - in plugins section add: `id 'application'`
