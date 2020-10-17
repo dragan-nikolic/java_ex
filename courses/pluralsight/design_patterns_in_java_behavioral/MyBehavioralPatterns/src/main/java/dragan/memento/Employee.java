@@ -1,9 +1,7 @@
 package dragan.memento;
 
-import java.io.Serializable;
-
 // originator
-public class Employee implements Serializable {
+public class Employee {
     private String name;
     private String address;
     private String phone;
@@ -22,5 +20,31 @@ public class Employee implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public EmployeeMemento save() {
+        return new EmployeeMemento(name, phone);
+    }
+
+    public void revert(EmployeeMemento memento) {
+        name = memento.getName();
+        phone = memento.getPhone();
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }
