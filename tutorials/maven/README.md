@@ -1,5 +1,6 @@
 # Maven
 
+* [Jenkov Maven Tutorial](http://tutorials.jenkov.com/maven/maven-tutorial.html) - part of GridU Web Development with Java and Spring
 * http://www.vogella.com/tutorials/ApacheMaven/article.html
 * https://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/
 * https://www.baeldung.com/maven
