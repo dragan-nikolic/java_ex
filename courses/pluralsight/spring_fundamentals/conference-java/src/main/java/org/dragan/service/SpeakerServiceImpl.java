@@ -34,6 +34,6 @@ public class SpeakerServiceImpl implements SpeakerService {
 
     @PostConstruct
     private void initialize() {
-        System.out.println("Initialize - called after the constructors");
+        System.out.println("SpeakerServiceImpl PostConstruct: Initialize - called after the constructors");
     }
 }
