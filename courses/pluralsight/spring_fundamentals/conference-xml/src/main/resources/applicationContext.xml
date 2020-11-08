@@ -7,7 +7,8 @@
     <bean name="speakerRepository"
           class="org.dragan.repository.HibernateSpeakerRepositoryImpl" />
 
-    <bean name="speakerService" class="org.dragan.service.SpeakerServiceImpl" autowire="byName">
-    </bean>
-
+    <bean name="speakerService" 
+          class="org.dragan.service.SpeakerServiceImpl"
+          autowire="byName"
+    />
 </beans>
