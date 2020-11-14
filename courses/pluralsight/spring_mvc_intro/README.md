@@ -1,6 +1,13 @@
 # [Introduction to Spring MVC](https://app.pluralsight.com/library/courses/springmvc-intro/table-of-contents)
 
-## Setup Development Environment
+## Setup Development Environment with STS4
+
+Follow instructions from the course and change following:
+
+- spring-webmvc to version 4.3.29.RELEASE
+- use Java 1.8
+
+## Setup Development Environment with IntelliJ - COULD NOT GET IT WORKING
 
 ### Setup Web Server - Tomcat
 
