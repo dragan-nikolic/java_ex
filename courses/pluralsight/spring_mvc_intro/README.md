@@ -6,7 +6,7 @@
 
 Follow instructions from the course and change following:
 
-- spring-webmvc to version 4.3.29.RELEASE
+- use pom.xml from my_exercises/FitnessTracker project
 - use Java 1.8
 
 ### How to use Tomcat with STS4
