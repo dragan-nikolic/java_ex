@@ -23,4 +23,5 @@ public class Light {
     public void off() {
         isOn = false;
         System.out.println(this + " light switched off.");
-    }}
+    }
+}
