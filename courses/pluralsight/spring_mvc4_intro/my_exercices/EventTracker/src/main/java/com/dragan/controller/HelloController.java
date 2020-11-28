@@ -14,4 +14,9 @@ public class HelloController {
 		
 		return "hello";
 	}
+
+	@RequestMapping(value="/index", method=RequestMethod.GET)
+	public String goHome(Model model) {
+		return "forward:index.jsp";
+	}
 }

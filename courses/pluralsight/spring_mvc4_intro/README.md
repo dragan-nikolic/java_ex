@@ -1,5 +1,9 @@
 # [Introduction to Spring MVC 4](https://app.pluralsight.com/library/courses/spring-mvc4-introduction/table-of-contents)
 
+## Tools
+
+- Use Tomcat v8.5 (should work wuth v9 toom but doe snot work with v7)
+
 ## Possible Issues
 
 ### **Issue**: /greeting route cannot be found
