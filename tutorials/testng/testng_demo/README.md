@@ -1,7 +1,7 @@
 # TestNG Demo
 
-* https://www.swtestacademy.com/how-to-use-testng-with-gradle/
-* https://www.mkyong.com/tutorials/testng-tutorials/
+* [How to Use TestNG with Gradle](https://www.swtestacademy.com/how-to-use-testng-with-gradle/)
+* [TestNG Tutorial](https://www.mkyong.com/tutorials/testng-tutorials/)
 
 ## References
 
