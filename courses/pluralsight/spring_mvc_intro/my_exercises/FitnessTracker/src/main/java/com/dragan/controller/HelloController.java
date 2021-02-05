@@ -9,7 +9,7 @@ public class HelloController {
 
 	@RequestMapping(value="/greeting")
 	public String sayHello(Model model) {
-		model.addAttribute("greeting", "Hello World");
+		model.addAttribute("greeting", "Hello World by Dragan!");
 		
 		return "hello";
 	}

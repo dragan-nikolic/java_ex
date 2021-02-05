@@ -1,6 +1,5 @@
 package com.mantiso;
 
-import javax.jws.soap.InitParam;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
