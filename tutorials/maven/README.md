@@ -11,6 +11,8 @@
 
     $ mvn archetype:generate -DgroupId=com.dragan.app -DartifactId=hello -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 
+    $ mvn archetype:generate -DgroupId=com.dragan -DartifactId=JsonTester -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
 ### Update POM
 
 #### Update JDK version
@@ -26,7 +28,10 @@
     </dependency>
 
 ### Build
+
     $ mvn package
 
 ### Run
-    $java -cp target/hello-1.0-SNAPSHOT.jar com.dragan.App
+
+    $ java -cp target/hello-1.0-SNAPSHOT.jar com.dragan.App
+    $ java -cp target/JsonTester-1.0-SNAPSHOT.jar com.dragan.App
