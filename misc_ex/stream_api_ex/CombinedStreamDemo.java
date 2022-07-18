@@ -19,7 +19,14 @@ public class CombinedStreamDemo {
         System.out.println(featureListUrl);
     }
 
+    public static void filterStates() {
+        List<CountryStates> countryStates = CountryStates.getStatesForCountry("CA"); // check this function to see how filtering is implemented
+
+        System.out.println(countryStates.toString());
+    }
+
     public static void main(String args[]) {
         comaSeparatedFeatureNames("PartialCancel, Bopis,Checkout,  Cart");
+        filterStates();
     }
 }

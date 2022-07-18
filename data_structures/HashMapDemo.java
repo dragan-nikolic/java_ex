@@ -36,6 +36,11 @@ public class HashMapDemo {
          System.out.println(me.getValue());
       }
       System.out.println();
+
+      for (Map.Entry entry: hm.entrySet()) {
+         System.out.print(entry.getKey() + "::: ");
+         System.out.println(entry.getValue());
+      }
       
       // Deposit 1000 into Zara's account
       double balance = ((Double)hm.get("Zara")).doubleValue();

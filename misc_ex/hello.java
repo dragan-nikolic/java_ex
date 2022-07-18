@@ -15,5 +15,12 @@ Note: do not run with class extension 'java <file>.class'
 public class hello {
     public static void main(String[] args) {
         System.out.println("Hello World by Dragan!");
+
+        double d = 75.0;
+        Integer x = new Integer((int)(d/10.0));
+
+        String s = String.valueOf((int)(d/10.0));
+        System.out.println(s);
+
     }
 }
