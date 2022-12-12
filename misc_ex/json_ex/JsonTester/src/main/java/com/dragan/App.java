@@ -11,11 +11,28 @@ public class App
 {
     public static void main(String[] args) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        String json = "{\"requestList\": [" +
-                "{\"orderId\": \"o001\", \"type\": \"CANCEL\"}," +
-                "{\"orderId\": \"o001\", \"type\": \"EDIT\"}]}";
-        RequestList requestList = mapper.readerFor(RequestList.class).readValue(json);
-        System.out.println(requestList.requestList.get(0).getOrderId());
+        String json =
+                "[" +
+                    "{" +
+                        "\"orderId\": \"o001\"," +
+                        "\"type\": \"CANCEL\"," +
+                        "\"selfServiceRequestData\": " +
+                            "[" +
+                                "{" +
+                                    "\"items\": " +
+                                        "[" +
+                                            "{" +
+                                                "\"id\": \"o001\"," +
+                                                "\"reason\": \"1\"" +
+                                            "}" +
+                                        "]," +
+                                    "\"userName\": \"dragan\"" +
+                                "}" +
+                            "]" +
+                    "}" +
+                "]";
+        Request[] requestList = mapper.readerFor(Request[].class).readValue(json);
+        System.out.println(requestList[0].getOrderId());
     }
 }
 
@@ -27,6 +44,9 @@ class Request {
     @JsonProperty("type")
     private String type;
 
+    @JsonProperty("selfServiceRequestData")
+    private SelfServiceRequestDataEntry[] selfServiceRequestData;
+
     public String getOrderId() {
         return orderId;
     }
@@ -35,11 +55,7 @@ class Request {
         return type;
     }
 
-    
-}
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-class RequestList {
-    @JsonProperty("requestList")
-    List<Request> requestList;
+    public SelfServiceRequestDataEntry[] getSelfServiceRequestData() {
+        return selfServiceRequestData;
+    }
 }
