@@ -81,8 +81,6 @@ public class MapDemo {
          "Charlie", 35
       );
 
-      System.out.println(map);
-
       try {
          map.put("Delta", 32);
       } catch (UnsupportedOperationException e) {
@@ -90,6 +88,15 @@ public class MapDemo {
          System.out.println(e);
       }
    
+      try {
+         map.put("Bob", 31);
+      } catch (UnsupportedOperationException e) {
+         System.out.println("Unable to change entry of the immutable Map.of map!");
+         System.out.println(e);
+      }
+   
+      System.out.println(map);
+
       return map;
    }
 
@@ -108,6 +115,13 @@ public class MapDemo {
          System.out.println(e);
       }
 
+      try {
+         map.put("Bob", 31);
+      } catch (UnsupportedOperationException e) {
+         System.out.println("Unable to change entry of the immutable Map.of map!");
+         System.out.println(e);
+      }
+   
       System.out.println(map);
       
       return map;
@@ -145,9 +159,9 @@ public class MapDemo {
 
    public static void main(String args[]) {
       //Map<String, Integer> map = createUsingMapOf();
-      //Map<String, Integer> map = createUsingMapOfEntries();
+      Map<String, Integer> map = createUsingMapOfEntries();
       //Map<String, Integer> map = createUsingHashMap();
-      Map<String, Integer> map = createUsingLinkedHashMap();
+      //Map<String, Integer> map = createUsingLinkedHashMap();
       //Map<String, Integer> map = createUsingTreeMap();
 
       iterateUsingEntrySet(map);
