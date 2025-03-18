@@ -15,7 +15,7 @@ import java.util.*;
 public class StackDemo {
 
    static void showpush(Stack<Integer> st, int a) {
-      st.push(new Integer(a));
+      st.push(Integer.valueOf(a));
       System.out.println("push(" + a + ")");
       System.out.println("stack: " + st);
    }
@@ -40,6 +40,10 @@ public class StackDemo {
          showpop(st);
       }catch (EmptyStackException e) {
          System.out.println("empty stack");
+      }
+
+      if (st.isEmpty()) {
+         System.out.println("Stack is empty!");
       }
    }
 }
