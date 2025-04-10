@@ -2,12 +2,16 @@ plugins {
     id 'java'
 }
 
-group 'examples'
+group 'com.ontestautomation.taurestassured'
+artifactId 'TestAutomationURESTAssured'
 version '1.0-SNAPSHOT'
 description 'Code samples as used in the TestAutomationU REST Assured course I created'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 ext {
-    restassuredVersion = '5.5.1'
+    restassuredVersion = '3.3.0'
     junitVersion = '4.12'
     junitDataproviderVersion = '2.4'
     jacksonDatabindVersion = '2.9.8'
@@ -18,9 +22,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation "io.rest-assured:rest-assured:${restassuredVersion}"
+    testImplementation "junit:junit:${junitVersion}"
     testImplementation "com.tngtech.junit:junit4-dataprovider:${junitDataproviderVersion}"
     testImplementation "com.fasterxml.jackson.core:jackson-databind:${jacksonDatabindVersion}"
     testImplementation "com.github.tomakehurst:wiremock-jre8:2.21.0"
