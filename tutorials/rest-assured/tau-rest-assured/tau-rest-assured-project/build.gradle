@@ -2,16 +2,8 @@ plugins {
     id 'java'
 }
 
-group 'examples'
-version '1.0-SNAPSHOT'
-description 'Code samples as used in the TestAutomationU REST Assured course I created'
-
-ext {
-    restassuredVersion = '5.5.1'
-    junitVersion = '4.12'
-    junitDataproviderVersion = '2.4'
-    jacksonDatabindVersion = '2.9.8'
-}
+group = 'examples'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -20,8 +12,10 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation "io.rest-assured:rest-assured:${restassuredVersion}"
-    testImplementation "com.tngtech.junit:junit4-dataprovider:${junitDataproviderVersion}"
-    testImplementation "com.fasterxml.jackson.core:jackson-databind:${jacksonDatabindVersion}"
-    testImplementation "com.github.tomakehurst:wiremock-jre8:2.21.0"
+
+    testImplementation 'io.rest-assured:rest-assured:5.5.1'
+}
+
+test {
+    useJUnitPlatform()
 }
